@@ -8,7 +8,7 @@ const ImageGallery=()=>{
    useEffect(()=>{
      axios.get("https://jsonplaceholder.typicode.com/photos")
      .then((images)=>{
-        setImages(images.data.slice(0,10).map((image:Image)=>({...image,like:false})))
+        setImages(images.data.map((image:Image)=>({...image,like:false})))
      })
      .catch(error=>{
          console.log(error)
