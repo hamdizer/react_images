@@ -18,9 +18,9 @@ const ImageItem=(imageData:ImageData)=>{
   
 
 
-    return( <div >
-        <img width={"20%"} height={"20%"} src={imageData.image.thumbnailUrl} alt={imageData.image.title}/>
-        <button  onClick={handleLikeImage} >{isLiked?"Unlike":"Like"}</button>
+    return( <div className="flex flex-col items-center" >
+        <img width={"50%"} height={"50%"} src={imageData.image.thumbnailUrl} alt={imageData.image.title}/>
+        <button   onClick={handleLikeImage} >{isLiked?"Unlike":"Like"}</button>
     </div>)
 }
 export default ImageItem

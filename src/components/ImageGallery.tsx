@@ -8,7 +8,7 @@ const ImageGallery=()=>{
    useEffect(()=>{
      axios.get("https://jsonplaceholder.typicode.com/photos")
      .then((images)=>{
-        setImages(images.data.slice(0,10))
+        setImages(images.data)
      })
      .catch(error=>{
          console.log(error)
@@ -34,7 +34,7 @@ const ImageGallery=()=>{
    return (
     <>
     <button style={{float:"right"}} onClick={(e:any)=>{showLikedImagesList(e)}}>Show Liked Images</button>
-    <div className="grid-cols-4" >
+    <div className="grid grid-cols-4" >
         {images?.map((image:Image,index:number)=>(
             <ImageItem   like={like(image.id)} key={index} image={image} />))
         }
