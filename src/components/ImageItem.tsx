@@ -17,15 +17,13 @@ const ImageItem=(imageData:ImageData)=>{
 
     }
    
-  useEffect(()=>{
-    console.log(imageData.image)
-  },[isLiked])
+ 
 
 
     return( <div className="flex flex-col items-center" >
-        <img width={"50%"} height={"50%"} src={imageData.image.thumbnailUrl} alt={imageData.image.title}/>
+        <img width={"90%"} height={"90%"} src={imageData.image.thumbnailUrl} alt={imageData.image.title}/>
             
-            <button className="bg-blue-200 mb-4 h-1/2 w-1/2">
+            <button className="bg-blue-200 mb-4 w-[90%] h-[90%] ">
             {isLiked?<><FontAwesomeIcon  onClick={handleLikeImage} icon={faThumbsDown} />
       <span> Unlike</span></>:
      <>
