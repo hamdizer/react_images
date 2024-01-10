@@ -8,7 +8,7 @@ const ImageGallery=()=>{
    useEffect(()=>{
      axios.get("https://jsonplaceholder.typicode.com/photos")
      .then((images)=>{
-        setImages(images.data)
+        setImages(images.data.slice(0,10).map((image:Image)=>({...image,like:false})))
      })
      .catch(error=>{
          console.log(error)
@@ -21,10 +21,10 @@ const ImageGallery=()=>{
     setImages(likedImages)
 
    }
-   const like=(id:number)=>{
-    const updatedImages= images.map(image => image.id !== id ? image: {...image,like:true});
+   const like=(id:number,isLiked:boolean)=>{
+    const updatedImages= images.map(image => image.id !== id ? image: {...image,like:!isLiked});
     console.log(updatedImages)
-   // setImages(updatedImages)
+    setImages(updatedImages)
    }
    /*const unlike=(id:number)=>{
     const updatedImages= images.map(image => image.id !== id ? image: {...image,like:false});
@@ -33,10 +33,10 @@ const ImageGallery=()=>{
 
    return (
     <>
-    <button style={{float:"right"}} onClick={(e:any)=>{showLikedImagesList(e)}}>Show Liked Images</button>
+    <button onClick={(e:any)=>{showLikedImagesList(e)}}>Show Liked Images</button>
     <div className="grid grid-cols-4" >
-        {images?.map((image:Image,index:number)=>(
-            <ImageItem   like={like(image.id)} key={index} image={image} />))
+        {images?.map((image:any,index:number)=>(
+            <ImageItem   like={()=>like(image.id,image.like) } key={index} image={image} />))
         }
     
 
