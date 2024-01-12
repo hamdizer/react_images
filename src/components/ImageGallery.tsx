@@ -30,7 +30,7 @@ const ImageGallery=()=>{
    return (
     <>
     <div className="flex justify-between mb-4 px-2 py-2">
-    <button className="bg-blue-500 rounded-md rounded-md flex  items-center justify-center px-2 h-[30%]"  onClick={showLikedImagesList}><span>Show Liked Images</span></button>
+    <button   className="bg-blue-500 rounded-md rounded-md flex  items-center justify-center px-2 h-[30%]"  onClick={showLikedImagesList}><span>Show Liked Images</span></button>
 
     </div>
     <div className="grid grid-cols-4" >
